@@ -24,7 +24,7 @@ const CreateEditTicket: React.FC<CreateEditTicketProps> = ({
   };
 
   return (
-    <div>
+    <div className="modal-content">
       {action === 'create' && <h2>Create a New Ticket</h2>}
       {action === 'edit' && <h2>Edit Ticket</h2>}
       {action === 'delete' && (

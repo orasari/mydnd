@@ -78,23 +78,37 @@ export const TicketCounter = styled.span`
   color: ${({ theme }) => theme.colors.textContrast};
 `;
 
-export const BoardContent = styled.span`
+export const BoardContent = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 5px;
   padding: ${({ theme }) => theme.spacing.medium};
   background-color: ${({ theme }) => theme.colors.background};
   overflow-x: auto;
-  white-space: nowrap;
-
+  overflow-y: hidden;
+  min-height: 60vh;
   scroll-behavior: smooth;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    justify-content: center;
+  }
+
   &::-webkit-scrollbar {
     height: 8px;
   }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.colors.primary};
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
+  }
 `;
 
-export const BoardMenu = styled.span`
+export const BoardMenu = styled.div`
   display: flex;
   justify-content: right;
   height: 60px;

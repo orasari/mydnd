@@ -25,6 +25,7 @@ export const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.xlarge};
+  min-height: 120px;
 
   h2 {
     font-size: ${({ theme }) => theme.fontSizes.large};
@@ -35,14 +36,35 @@ export const ModalContent = styled.div`
   textarea {
     width: 100%;
     height: 100px;
+    margin: 20px;
+    background: transparent;
+    border: 1px solid ${({ theme }) => theme.colors.grey};
+    border-radius: 10px;
     padding: ${({ theme }) => theme.spacing.small};
-    border: none;
     font-size: ${({ theme }) => theme.fontSizes.medium};
     color: ${({ theme }) => theme.colors.text};
     background: ${({ theme }) => theme.colors.backgroundSecondary};
     resize: none;
     outline: none;
     transition: border-color 0.3s ease;
+    &:focus {
+      border-color: ${({ theme }) => theme.colors.lightBlue};
+      box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.1),
+        0 0 0 2px ${({ theme }) => theme.colors.lightBlue};
+    }
+  }
+
+  .modal-content {
+    display: flex;
+    height: 100%;
+    position: relative;
+    flex-grow: 1;
+    flex-direction: column;
+    /* margin: auto; */
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
   }
 
   .modal-actions {

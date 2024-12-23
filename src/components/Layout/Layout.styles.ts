@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-// Layout Container
 export const LayoutContainer = styled.div`
   background: ${({ theme }) => theme.colors.grey};
   display: flex;
@@ -10,7 +9,6 @@ export const LayoutContainer = styled.div`
   font-family: ${({ theme }) => theme.fonts.body};
 `;
 
-// Header
 export const Header = styled.header`
   position: sticky;
   top: 0;
@@ -22,13 +20,13 @@ export const Header = styled.header`
   transition: transform 0.3s ease-in-out;
   transform: translateY(0);
   box-shadow: -1px 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 
   &.hidden {
     transform: translateY(-100%);
   }
 `;
 
-// Content
 export const Content = styled.main`
   flex: 1;
   padding: ${({ theme }) => theme.spacing.large};
@@ -41,7 +39,6 @@ export const Content = styled.main`
   background-color: ${({ theme }) => theme.colors.grey};
 `;
 
-// Footer
 export const Footer = styled.footer`
   padding: ${({ theme }) => theme.spacing.medium}
     ${({ theme }) => theme.spacing.large};
