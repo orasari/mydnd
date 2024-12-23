@@ -13,7 +13,7 @@ describe('Ticket Component', () => {
     ticket: { id: 'ticket-1', content: 'Sample Ticket' },
     columnId: 'todo',
     onUpdate: mockOnUpdate,
-    onDelete: mockOnDelete, 
+    onDelete: mockOnDelete,
   };
 
   beforeEach(() => {
