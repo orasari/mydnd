@@ -3,6 +3,7 @@
 This project is a drag-and-drop React application built with Create React App, leveraging Redux Toolkit for state management, and incorporating @dnd-kit and react-beautiful-dnd for drag-and-drop functionality.
 
 # Initial start
+
 - after cloning the project run npm install
 - after npm install, run npm start
 

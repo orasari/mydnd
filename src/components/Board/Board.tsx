@@ -4,23 +4,17 @@ import { RootState } from '@/redux/store';
 import { DndContext, DragEndEvent } from '@dnd-kit/core';
 import { useBoardActions } from '@/hooks/useBoardActions';
 import Modal from '@components/Modal/Modal';
-import {
-  BoardContainer,
-  ColumnHeader,
-  TicketList,
-  TicketCounter,
-  ColumnTitle,
-  BoardMenu,
-  BoardContent,
-} from './Board.styles';
-import CreateEditTicket from './CreateEditTicket';
-import DraggableTicket from '@components/dnd/DraggableTicket';
-import DroppableColumn from '@components/dnd/DroppableColumns';
 import SearchBar from '@components/SearchBar/SearchBar';
+import CreateEditTicket from './CreateEditTicket';
+import { renderColumns } from './ColumnsRenderer';
 
-const Board = () => {
+import { BoardContainer, BoardContent, BoardMenu } from './Board.styles';
+import { findTicketColumn } from '@/utils/boardUtils';
+
+const Board: React.FC = () => {
   const { addTicket, deleteTicket, updateTicketContent, moveTicket } =
     useBoardActions();
+
   const columns = useSelector((state: RootState) => state.board.columns);
   const tickets = useSelector((state: RootState) => state.board.tickets);
 
@@ -28,6 +22,7 @@ const Board = () => {
   const [modalContent, setModalContent] = useState<JSX.Element | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
 
+  // ----- Modal Handlers -----
   const openModal = (content: JSX.Element) => {
     setModalContent(content);
     setIsModalOpen(true);
@@ -38,6 +33,7 @@ const Board = () => {
     setModalContent(null);
   };
 
+  // ----- Ticket Creation/Update/Delete -----
   const handleCreateTicket = (columnId: string) => {
     openModal(
       <CreateEditTicket
@@ -78,15 +74,13 @@ const Board = () => {
     );
   };
 
+  // ----- Drag-and-Drop Logic -----
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
-
     if (!over) return;
 
     const ticketId = active.id as string;
-    const sourceColumnId = Object.keys(columns).find((columnId) =>
-      columns[columnId].ticketIds.includes(ticketId)
-    );
+    const sourceColumnId = findTicketColumn(ticketId, columns);
     const destinationColumnId = over.id as string;
 
     if (
@@ -98,10 +92,9 @@ const Board = () => {
     }
   };
 
-  const getFilteredTicketIds = (ticketIds: string[]) => {
-    return ticketIds.filter((ticketId) =>
-      tickets[ticketId].content.toLowerCase().includes(searchTerm)
-    );
+  // ----- Search -----
+  const handleSearch = (term: string) => {
+    setSearchTerm(term.toLowerCase());
   };
 
   return (
@@ -109,49 +102,21 @@ const Board = () => {
       <DndContext onDragEnd={handleDragEnd}>
         <BoardContainer>
           <BoardMenu>
-            <SearchBar onSearch={(term) => setSearchTerm(term.toLowerCase())} />
+            <SearchBar onSearch={handleSearch} />
           </BoardMenu>
           <BoardContent>
-            {Object.values(columns).map((column) => {
-              const filteredTicketIds = getFilteredTicketIds(column.ticketIds);
-
-              return (
-                <DroppableColumn key={column.id} id={column.id}>
-                  <ColumnHeader $columnId={column.id}>
-                    <ColumnTitle>
-                      {column.name}
-                      <TicketCounter>
-                        ({filteredTicketIds.length})
-                      </TicketCounter>
-                    </ColumnTitle>
-                    <button
-                      className="add-ticket"
-                      onClick={() => handleCreateTicket(column.id)}
-                      aria-label={`Add ticket to ${column.name}`}
-                    >
-                      +
-                    </button>
-                  </ColumnHeader>
-                  <TicketList>
-                    {filteredTicketIds.map((ticketId) => (
-                      <DraggableTicket
-                        key={ticketId}
-                        id={ticketId}
-                        ticket={tickets[ticketId]}
-                        columnId={column.id}
-                        onUpdate={(id, content) =>
-                          handleEditTicket(id, content)
-                        }
-                        onDelete={(id) => handleDeleteTicket(id, column.id)}
-                      />
-                    ))}
-                  </TicketList>
-                </DroppableColumn>
-              );
+            {renderColumns({
+              columns,
+              tickets,
+              searchTerm,
+              handleCreateTicket,
+              handleEditTicket,
+              handleDeleteTicket,
             })}
           </BoardContent>
         </BoardContainer>
       </DndContext>
+
       {isModalOpen && <Modal onClose={closeModal}>{modalContent}</Modal>}
     </>
   );
