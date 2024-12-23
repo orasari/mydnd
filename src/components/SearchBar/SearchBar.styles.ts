@@ -16,8 +16,8 @@ export const Input = styled.input`
   border-radius: 25px;
   border: none;
   font-size: ${({ theme }) => theme.fontSizes.medium};
-  color: ${({ theme }) => theme.colors.textPrimary};
-  background-color: ${({ theme }) => theme.colors.inputBackground};
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.background};
   border: 1px solid ${({ theme }) => theme.colors.lightNavy};
   transition: all 0.3s ease;
 
