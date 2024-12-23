@@ -109,7 +109,9 @@ export const BoardContent = styled.div`
 `;
 
 export const BoardMenu = styled.div`
-  display: flex;
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: flex;
+  }
   justify-content: right;
   height: 60px;
   width: 100%;

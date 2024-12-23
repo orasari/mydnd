@@ -33,6 +33,10 @@ export const ModalContent = styled.div`
     color: ${({ theme }) => theme.colors.primary};
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin: 30px;
+  }
+
   textarea {
     width: 100%;
     height: 100px;
