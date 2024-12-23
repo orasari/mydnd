@@ -1,6 +1,20 @@
-# Getting Started with Create React App and Redux
+# MyDND by Mina Stankovic
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+This project is a drag-and-drop React application built with Create React App, leveraging Redux Toolkit for state management, and incorporating @dnd-kit and react-beautiful-dnd for drag-and-drop functionality.
+
+## Key Features
+
+`Drag-and-Drop Support:` Powered by @dnd-kit/core and react-beautiful-dnd for intuitive interactions.
+
+`State Management:` Redux Toolkit for managing application state, with support for persistence using redux-persist.
+
+`TypeScript Integration:` Strongly typed development using TypeScript.
+
+`Styling: Styled-components` for modular and reusable styling.
+
+`Linting and Formatting:` ESLint and Prettier for consistent code quality.
+
+`Responsive Design:` Fully responsive for various screen sizes.
 
 ## Available Scripts
 
@@ -39,8 +53,11 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### `npm run lint`
+Runs ESLint to check for linting issues in the src directory.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `npm run lint:fix`
+Runs ESLint and Prettier to fix linting and formatting issues in the src directory.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `npm run format`
+Formats the source code in the src directory and other supported files (JSON, CSS, SCSS, MD) using Prettier.
