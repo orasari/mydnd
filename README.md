@@ -1,106 +1,46 @@
-MyDND Project
+# Getting Started with Create React App and Redux
 
-This project is a drag-and-drop React application built with Create React App, leveraging Redux Toolkit for state management, and incorporating @dnd-kit and react-beautiful-dnd for drag-and-drop functionality.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-Key Features
-
-Drag-and-Drop Support: Powered by @dnd-kit/core and react-beautiful-dnd for intuitive interactions.
-
-State Management: Redux Toolkit for managing application state, with support for persistence using redux-persist.
-
-TypeScript Integration: Strongly typed development using TypeScript.
-
-Styling: Styled-components for modular and reusable styling.
-
-Linting and Formatting: ESLint and Prettier for consistent code quality.
-
-Responsive Design: Fully responsive for various screen sizes.
-
-Available Scripts
+## Available Scripts
 
 In the project directory, you can run:
 
-npm start
+### `npm start`
 
-Runs the app in development mode. Open http://localhost:3000 to view it in your browser. The page will reload if you make edits.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-npm test
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-Launches the test runner in the interactive watch mode. See the section about running tests for more details.
+### `npm test`
 
-npm run build
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Builds the app for production to the build folder. It optimizes the build for the best performance. Your app is ready to be deployed.
+### `npm run build`
 
-npm run eject
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Note: This is a one-way operation. Once you eject, you can’t go back.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-npm run lint
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Runs ESLint to check for linting issues in the src directory.
+### `npm run eject`
 
-npm run lint:fix
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-Runs ESLint and Prettier to fix linting and formatting issues in the src directory.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-npm run format
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-Formats the source code in the src directory and other supported files (JSON, CSS, SCSS, MD) using Prettier.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-Dependencies
+## Learn More
 
-Core Dependencies
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-react (v18.3.1): Core library for building the user interface.
-
-react-dom (v18.3.1): React rendering library.
-
-@reduxjs/toolkit (v2.5.0): Simplified state management with Redux.
-
-react-redux (v9.2.0): Official React bindings for Redux.
-
-redux-persist (v6.0.0): Persistence for Redux state.
-
-@dnd-kit/core (v6.3.1): Drag-and-drop framework.
-
-styled-components (v6.1.13): CSS-in-JS styling.
-
-TypeScript Support
-
-typescript (v4.9.5)
-
-@types/react (v19.0.2)
-
-@types/react-dom (v19.0.2)
-
-@types/react-redux (v7.1.34)
-
-@types/styled-components (v5.1.34)
-
-Testing
-
-@testing-library/react (v16.1.0): Testing utilities for React components.
-
-@testing-library/jest-dom (v6.6.3): Custom matchers for DOM node assertions.
-
-@types/jest (v29.5.14): TypeScript types for Jest.
-
-Linting and Formatting
-
-eslint (v8.57.1)
-
-eslint-config-prettier (v9.1.0)
-
-eslint-plugin-react (v7.37.2)
-
-eslint-plugin-react-hooks (v5.1.0)
-
-prettier (v3.4.2)
-
-Development Tools
-
-react-app-rewired: Allows custom configurations for Create React App without ejecting.
-
-Babel plugins for advanced JavaScript syntax.
-
+To learn React, check out the [React documentation](https://reactjs.org/).
