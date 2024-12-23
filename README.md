@@ -7,6 +7,7 @@ This project is a drag-and-drop React application built with Create React App, l
 - after npm install, run npm start
 
 - The state of the board is persisted in the localStorage `persist:board`
+note: only the boardReducer is persisted, the themeReducer is blacklisted in the persistConfig;
 
 ## Key Features
 
