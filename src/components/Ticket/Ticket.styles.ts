@@ -1,4 +1,3 @@
-import { getAccentColor, getPrimaryColor } from '@/utils/themeUtils';
 import styled from 'styled-components';
 
 export const TicketWrapper = styled.div<{ columnId: string }>`
@@ -6,7 +5,7 @@ export const TicketWrapper = styled.div<{ columnId: string }>`
   height: 120px;
   padding: ${({ theme }) => theme.spacing.medium};
   margin: ${({ theme }) => theme.spacing.small} 0;
-  background-color: ${({ theme, columnId }) => getAccentColor(columnId, theme)};
+  background-color: ${({ theme }) => theme.colors.accentBlue};
   color: ${({ theme }) => theme.colors.textContrast};
   border-radius: ${({ theme }) => theme.borderRadius};
   cursor: pointer;
@@ -20,13 +19,12 @@ export const TicketWrapper = styled.div<{ columnId: string }>`
   }
 
   > button {
-    pointer-events: auto; /* Always enable pointer events */
+    pointer-events: auto;
   }
 
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: ${({ theme, columnId }) =>
-      getPrimaryColor(columnId, theme)};
+    background-color: ${({ theme }) => theme.colors.primaryBlue};
   }
 
   &.dragging {

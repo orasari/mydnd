@@ -10,11 +10,7 @@ interface DroppableColumnProps {
 const DroppableColumn: React.FC<DroppableColumnProps> = ({ id, children }) => {
   const { setNodeRef } = useDroppable({ id });
 
-  return (
-    <Column ref={setNodeRef} columnId={id}>
-      {children}
-    </Column>
-  );
+  return <Column ref={setNodeRef}>{children}</Column>;
 };
 
 export default DroppableColumn;

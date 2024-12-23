@@ -54,10 +54,13 @@ Instead, it will copy all the configuration files and the transitive dependencie
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
 ### `npm run lint`
+
 Runs ESLint to check for linting issues in the src directory.
 
 ### `npm run lint:fix`
+
 Runs ESLint and Prettier to fix linting and formatting issues in the src directory.
 
 ### `npm run format`
+
 Formats the source code in the src directory and other supported files (JSON, CSS, SCSS, MD) using Prettier.
