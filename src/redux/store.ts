@@ -1,8 +1,8 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // Default: localStorage for web
-import themeReducer from '../features/themeSlice';
-import boardReducer from './reducers/boardSlice';
+import themeReducer from './reducers/theme/themeSlice';
+import boardReducer from './reducers/board/boardSlice';
 
 const rootReducer = combineReducers({
   theme: themeReducer,

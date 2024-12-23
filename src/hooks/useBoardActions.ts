@@ -5,7 +5,7 @@ import {
   deleteTicket,
   moveTicket,
   updateTicketContent,
-} from '../redux/reducers/boardSlice';
+} from '../redux/reducers/board/boardSlice';
 import { DragEndEvent } from '@dnd-kit/core';
 
 export const useBoardActions = () => {

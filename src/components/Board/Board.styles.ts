@@ -14,6 +14,7 @@ export const BoardContainer = styled.div`
 export const Column = styled.div<{ $columnId: string }>`
   flex: 0 0 auto;
   width: 280px;
+  min-height: 400px;
   background-color: ${({ theme, $columnId }) =>
     getLightColor($columnId, theme)};
   border-radius: ${({ theme }) => theme.borderRadius};
@@ -69,6 +70,7 @@ export const TicketList = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.small};
+  min-height: 400px;
 `;
 
 export const TicketCounter = styled.span`
