@@ -1,3 +1,8 @@
+import {
+  getAccentColor,
+  getLightColor,
+  getPrimaryColor,
+} from '@/utils/themeUtils';
 import styled from 'styled-components';
 
 export const BoardContainer = styled.div`
@@ -6,10 +11,11 @@ export const BoardContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.grey};
 `;
 
-export const Column = styled.div`
+export const Column = styled.div<{ $columnId: string }>`
   flex: 0 0 auto;
   width: 280px;
-  background-color: ${({ theme }) => theme.colors.lightBlue};
+  background-color: ${({ theme, $columnId }) =>
+    getLightColor($columnId, theme)};
   border-radius: ${({ theme }) => theme.borderRadius};
   color: ${({ theme }) => theme.colors.textContrast};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -19,11 +25,12 @@ export const Column = styled.div`
   }
 `;
 
-export const ColumnHeader = styled.div`
-  position: relative; 
+export const ColumnHeader = styled.div<{ $columnId: string }>`
+  position: relative;
   display: flex;
   border-bottom: 5px solid ${({ theme }) => theme.colors.background};
-  background-color: ${({ theme }) => theme.colors.primaryBlue};
+  background-color: ${({ theme, $columnId }) =>
+    getPrimaryColor($columnId, theme)};
     .add-ticket {
       cursor: pointer;
       background: transparent;
@@ -41,7 +48,7 @@ export const ColumnHeader = styled.div`
     
       &:hover {
         font-size: ${({ theme }) => theme.fontSizes.xxlarge};
-        background: ${({ theme }) => theme.colors.accentBlue};
+        background: ${({ theme, $columnId }) => getAccentColor($columnId, theme)};
       }
     }    
     

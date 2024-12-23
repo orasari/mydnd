@@ -117,7 +117,7 @@ const Board = () => {
 
               return (
                 <DroppableColumn key={column.id} id={column.id}>
-                  <ColumnHeader>
+                  <ColumnHeader $columnId={column.id}>
                     <ColumnTitle>
                       {column.name}
                       <TicketCounter>
