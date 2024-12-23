@@ -1,4 +1,4 @@
-import { getAccentColor, getPrimaryColor } from '@/utils/themeUtils';
+import { getAccentColor, getPrimaryColor } from '../../utils/themeUtils';
 import styled from 'styled-components';
 
 export const TicketWrapper = styled.div<{ $columnId: string }>`

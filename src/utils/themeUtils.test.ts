@@ -21,16 +21,16 @@ const mockTheme: DefaultTheme = {
 
 describe('themeUtils', () => {
   describe('getAccentColor', () => {
-    it('returns the correct accent color for column-1', () => {
-      expect(getAccentColor('column-1', mockTheme)).toBe('#5b9bd5');
+    it('returns the correct accent color for todo', () => {
+      expect(getAccentColor('todo', mockTheme)).toBe('#5b9bd5');
     });
 
-    it('returns the correct accent color for column-2', () => {
-      expect(getAccentColor('column-2', mockTheme)).toBe('#f44336');
+    it('returns the correct accent color for inProgress', () => {
+      expect(getAccentColor('inProgress', mockTheme)).toBe('#f44336');
     });
 
-    it('returns the correct accent color for column-3', () => {
-      expect(getAccentColor('column-3', mockTheme)).toBe('#3b5998');
+    it('returns the correct accent color for done', () => {
+      expect(getAccentColor('done', mockTheme)).toBe('#3b5998');
     });
 
     it('returns the default accent color for an unknown column ID', () => {
@@ -39,16 +39,16 @@ describe('themeUtils', () => {
   });
 
   describe('getPrimaryColor', () => {
-    it('returns the correct primary color for column-1', () => {
-      expect(getPrimaryColor('column-1', mockTheme)).toBe('#2b5797');
+    it('returns the correct primary color for todo', () => {
+      expect(getPrimaryColor('todo', mockTheme)).toBe('#2b5797');
     });
 
-    it('returns the correct primary color for column-2', () => {
-      expect(getPrimaryColor('column-2', mockTheme)).toBe('#d32f2f');
+    it('returns the correct primary color for inProgress', () => {
+      expect(getPrimaryColor('inProgress', mockTheme)).toBe('#d32f2f');
     });
 
-    it('returns the correct primary color for column-3', () => {
-      expect(getPrimaryColor('column-3', mockTheme)).toBe('#1a3e6e');
+    it('returns the correct primary color for done', () => {
+      expect(getPrimaryColor('done', mockTheme)).toBe('#1a3e6e');
     });
 
     it('returns the default primary color for an unknown column ID', () => {
@@ -57,16 +57,16 @@ describe('themeUtils', () => {
   });
 
   describe('getLightColor', () => {
-    it('returns the correct light color for column-1', () => {
-      expect(getLightColor('column-1', mockTheme)).toBe('#bbdefb');
+    it('returns the correct light color for todo', () => {
+      expect(getLightColor('todo', mockTheme)).toBe('#bbdefb');
     });
 
-    it('returns the correct light color for column-2', () => {
-      expect(getLightColor('column-2', mockTheme)).toBe('#ffcdd2');
+    it('returns the correct light color for inProgress', () => {
+      expect(getLightColor('inProgress', mockTheme)).toBe('#ffcdd2');
     });
 
-    it('returns the correct light color for column-3', () => {
-      expect(getLightColor('column-3', mockTheme)).toBe('#90caf9');
+    it('returns the correct light color for done', () => {
+      expect(getLightColor('done', mockTheme)).toBe('#90caf9');
     });
 
     it('returns the default light color for an unknown column ID', () => {
