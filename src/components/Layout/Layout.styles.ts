@@ -10,7 +10,6 @@ export const LayoutContainer = styled.div`
 `;
 
 export const Header = styled.header`
-  position: sticky;
   top: 0;
   height: 60px;
   text-align: center;
