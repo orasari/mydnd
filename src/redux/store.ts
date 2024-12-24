@@ -10,9 +10,9 @@ const rootReducer = combineReducers({
 });
 
 const persistConfig = {
-  key: 'board',
+  key: 'mydnd',
   storage,
-  blacklist: ['theme'],
+  // blacklist: ['theme'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
