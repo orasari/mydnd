@@ -102,6 +102,10 @@ export const BoardMenu = styled.div`
   justify-content: right;
   height: 60px;
   width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 5;
   background-color: ${({ theme }) => theme.colors.background};
   border-bottom: 2px solid ${({ theme }) => theme.colors.grey};
 `;
