@@ -10,11 +10,9 @@ describe('themeReducer', () => {
   });
 
   it('should handle toggleTheme', () => {
-    // Toggle from 'primary' to 'dark'
     const darkState = reducer(initialState as ThemeState, toggleTheme());
     expect(darkState.currentTheme).toBe('dark');
 
-    // Toggle back from 'dark' to 'primary'
     const primaryState = reducer(darkState, toggleTheme());
     expect(primaryState.currentTheme).toBe('primary');
   });

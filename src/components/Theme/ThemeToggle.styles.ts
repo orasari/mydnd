@@ -25,5 +25,4 @@ export const IconWrapper = styled.span`
   display: flex;
   align-items: center;
   font-size: ${({ theme }) => theme.fontSizes.large};
-  color: ${({ theme }) => theme.colors.secondary};
 `;

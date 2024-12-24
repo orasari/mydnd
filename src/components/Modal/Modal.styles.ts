@@ -10,7 +10,7 @@ export const ModalOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 100;
   backdrop-filter: blur(4px);
 `;
 
@@ -47,7 +47,6 @@ export const ModalContent = styled.div`
     padding: ${({ theme }) => theme.spacing.small};
     font-size: ${({ theme }) => theme.fontSizes.medium};
     color: ${({ theme }) => theme.colors.text};
-    background: ${({ theme }) => theme.colors.backgroundSecondary};
     resize: none;
     outline: none;
     transition: border-color 0.3s ease;
@@ -65,7 +64,6 @@ export const ModalContent = styled.div`
     position: relative;
     flex-grow: 1;
     flex-direction: column;
-    /* margin: auto; */
     justify-content: space-between;
     align-content: center;
     align-items: center;

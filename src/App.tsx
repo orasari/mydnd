@@ -3,8 +3,8 @@ import Board from '@components/Board/Board';
 import Layout from '@components/Layout/Layout';
 import { ThemeProvider } from 'styled-components';
 import { useSelector } from 'react-redux';
-import { RootState } from '@/redux/store'; // Import your RootState type
-import { primaryTheme, darkTheme } from '@/styles/theme'; // Import both themes
+import { RootState } from '@/redux/store';
+import { primaryTheme, darkTheme } from '@/styles/theme';
 
 const App: React.FC = () => {
   const currentTheme = useSelector(

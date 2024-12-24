@@ -1,11 +1,13 @@
+// CreateEditTicket.tsx
 import React, { useState } from 'react';
+import { ActionTypeEnum } from '../../utils/enums';
 
 interface CreateEditTicketProps {
-  action: 'create' | 'edit' | 'delete';
-  onSave?: (content: string) => void; // Optional for create/edit
-  onDelete?: () => void; // Only for delete action
+  action: ActionTypeEnum;
+  onSave?: (content: string) => void;
+  onDelete?: () => void;
   onClose: () => void;
-  initialContent?: string; // For edit action
+  initialContent?: string;
 }
 
 const CreateEditTicket: React.FC<CreateEditTicketProps> = ({
@@ -25,18 +27,18 @@ const CreateEditTicket: React.FC<CreateEditTicketProps> = ({
 
   return (
     <div className="modal-content">
-      {action === 'create' && <h2>Create a New Ticket</h2>}
-      {action === 'edit' && <h2>Edit Ticket</h2>}
-      {action === 'delete' && (
+      {action === ActionTypeEnum.CREATE && <h2>Create a New Ticket</h2>}
+      {action === ActionTypeEnum.EDIT && <h2>Edit Ticket</h2>}
+      {action === ActionTypeEnum.DELETE && (
         <h2>Are you sure you want to delete this ticket?</h2>
       )}
 
-      {(action === 'create' || action === 'edit') && (
+      {(action === ActionTypeEnum.CREATE || action === ActionTypeEnum.EDIT) && (
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder={
-            action === 'create'
+            action === ActionTypeEnum.CREATE
               ? 'Enter ticket content'
               : 'Update ticket content'
           }
@@ -46,14 +48,22 @@ const CreateEditTicket: React.FC<CreateEditTicketProps> = ({
       )}
 
       <div className="modal-actions">
-        {action === 'create' || action === 'edit' ? (
-          <button onClick={handleSave} disabled={!content.trim()}>
+        {action === ActionTypeEnum.CREATE || action === ActionTypeEnum.EDIT ? (
+          <button
+            onClick={handleSave}
+            disabled={!content.trim()}
+            data-testid="save-btn"
+          >
             Save
           </button>
         ) : (
-          <button onClick={onDelete}>Yes, Delete</button>
+          <button onClick={onDelete} data-testid="delete-btn">
+            Yes, Delete
+          </button>
         )}
-        <button onClick={onClose}>Cancel</button>
+        <button onClick={onClose} data-testid="cancel-btn">
+          Cancel
+        </button>
       </div>
     </div>
   );

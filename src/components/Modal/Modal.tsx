@@ -8,7 +8,7 @@ type ModalProps = {
 
 const Modal = ({ onClose, children }: ModalProps) => {
   return (
-    <ModalOverlay onClick={onClose}>
+    <ModalOverlay onClick={onClose} data-testid="mnodal-overlay">
       <ModalContent onClick={(e) => e.stopPropagation()}>
         {children}
       </ModalContent>

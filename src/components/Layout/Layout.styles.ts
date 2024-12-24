@@ -18,6 +18,7 @@ export const Header = styled.header`
   justify-content: center;
   align-items: center;
   transition: transform 0.3s ease-in-out;
+  z-index: 10;
   transform: translateY(0);
   box-shadow: -1px 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -42,22 +43,10 @@ export const Content = styled.main`
 export const Footer = styled.footer`
   padding: ${({ theme }) => theme.spacing.medium}
     ${({ theme }) => theme.spacing.large};
-  color: ${({ theme }) => theme.colors.secondary};
   text-align: center;
-  font-size: ${({ theme }) => theme.fontSizes.small};
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
-  transition: transform 0.3s ease-in-out;
-  transform: translateY(0);
-
-  &.hidden {
-    transform: translateY(100%);
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: ${({ theme }) => theme.spacing.small};
-  }
+  z-index: 10;
 `;

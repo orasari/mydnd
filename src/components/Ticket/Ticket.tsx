@@ -20,11 +20,13 @@ const Ticket = ({ ticket, columnId, onUpdate, onDelete }: TicketProps) => {
       tabIndex={0}
       aria-label={`Ticket: ${ticket.content}`}
       $columnId={columnId}
+      data-testid={`ticket-${ticket.id}`}
     >
       <DeleteButton
         onPointerDown={(event) => event.stopPropagation()}
         onClick={handleDelete}
         aria-label="Delete ticket"
+        data-testid={`delete-${ticket.id}`}
       >
         x
       </DeleteButton>

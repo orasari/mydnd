@@ -3,7 +3,6 @@ import DroppableColumn from '@components/dnd/DroppableColumns';
 import DraggableTicket from '@components/dnd/DraggableTicket';
 import { getFilteredTicketIds } from '@/utils/boardUtils';
 
-// Import any styled-components or types you need
 import {
   ColumnHeader,
   ColumnTitle,

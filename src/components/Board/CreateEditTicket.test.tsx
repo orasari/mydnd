@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import CreateEditTicket from './CreateEditTicket';
+import { ActionTypeEnum } from '../../utils/enums';
 
 describe('CreateEditTicket Component', () => {
   const mockOnSave = jest.fn();
@@ -14,7 +15,7 @@ describe('CreateEditTicket Component', () => {
   it('renders "Create a New Ticket" header for create action', () => {
     render(
       <CreateEditTicket
-        action="create"
+        action={ActionTypeEnum.CREATE}
         onSave={mockOnSave}
         onClose={mockOnClose}
       />
@@ -25,7 +26,7 @@ describe('CreateEditTicket Component', () => {
   it('renders "Edit Ticket" header for edit action', () => {
     render(
       <CreateEditTicket
-        action="edit"
+        action={ActionTypeEnum.EDIT}
         onSave={mockOnSave}
         onClose={mockOnClose}
         initialContent="Existing content"
@@ -38,7 +39,7 @@ describe('CreateEditTicket Component', () => {
   it('renders "Are you sure you want to delete this ticket?" header for delete action', () => {
     render(
       <CreateEditTicket
-        action="delete"
+        action={ActionTypeEnum.DELETE}
         onDelete={mockOnDelete}
         onClose={mockOnClose}
       />
@@ -51,7 +52,7 @@ describe('CreateEditTicket Component', () => {
   it('calls onSave with trimmed content when save button is clicked', () => {
     render(
       <CreateEditTicket
-        action="create"
+        action={ActionTypeEnum.CREATE}
         onSave={mockOnSave}
         onClose={mockOnClose}
       />
@@ -69,7 +70,7 @@ describe('CreateEditTicket Component', () => {
   it('disables save button when content is empty or whitespace', () => {
     render(
       <CreateEditTicket
-        action="create"
+        action={ActionTypeEnum.CREATE}
         onSave={mockOnSave}
         onClose={mockOnClose}
       />
@@ -87,13 +88,13 @@ describe('CreateEditTicket Component', () => {
   it('calls onDelete when "Yes, Delete" button is clicked for delete action', () => {
     render(
       <CreateEditTicket
-        action="delete"
+        action={ActionTypeEnum.DELETE}
         onDelete={mockOnDelete}
         onClose={mockOnClose}
       />
     );
 
-    const deleteButton = screen.getByText('Yes, Delete');
+    const deleteButton = screen.getByTestId('delete-btn');
     fireEvent.click(deleteButton);
 
     expect(mockOnDelete).toHaveBeenCalled();
@@ -102,13 +103,13 @@ describe('CreateEditTicket Component', () => {
   it('calls onClose when cancel button is clicked', () => {
     render(
       <CreateEditTicket
-        action="create"
+        action={ActionTypeEnum.CREATE}
         onSave={mockOnSave}
         onClose={mockOnClose}
       />
     );
 
-    const cancelButton = screen.getByText('Cancel');
+    const cancelButton = screen.getByTestId('cancel-btn');
     fireEvent.click(cancelButton);
 
     expect(mockOnClose).toHaveBeenCalled();

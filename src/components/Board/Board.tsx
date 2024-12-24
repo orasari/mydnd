@@ -10,6 +10,7 @@ import { renderColumns } from './ColumnsRenderer';
 
 import { BoardContainer, BoardContent, BoardMenu } from './Board.styles';
 import { findTicketColumn } from '@/utils/boardUtils';
+import { ActionTypeEnum } from '@/utils/enums';
 
 const Board: React.FC = () => {
   const { addTicket, deleteTicket, updateTicketContent, moveTicket } =
@@ -22,7 +23,6 @@ const Board: React.FC = () => {
   const [modalContent, setModalContent] = useState<JSX.Element | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // ----- Modal Handlers -----
   const openModal = (content: JSX.Element) => {
     setModalContent(content);
     setIsModalOpen(true);
@@ -33,11 +33,10 @@ const Board: React.FC = () => {
     setModalContent(null);
   };
 
-  // ----- Ticket Creation/Update/Delete -----
   const handleCreateTicket = (columnId: string) => {
     openModal(
       <CreateEditTicket
-        action="create"
+        action={ActionTypeEnum.CREATE}
         onSave={(content) => {
           addTicket(columnId, content);
           closeModal();
@@ -50,7 +49,7 @@ const Board: React.FC = () => {
   const handleEditTicket = (ticketId: string, content: string) => {
     openModal(
       <CreateEditTicket
-        action="edit"
+        action={ActionTypeEnum.EDIT}
         initialContent={content}
         onSave={(updatedContent) => {
           updateTicketContent(ticketId, updatedContent);
@@ -64,7 +63,7 @@ const Board: React.FC = () => {
   const handleDeleteTicket = (ticketId: string, columnId: string) => {
     openModal(
       <CreateEditTicket
-        action="delete"
+        action={ActionTypeEnum.DELETE}
         onDelete={() => {
           deleteTicket(ticketId, columnId);
           closeModal();
@@ -74,7 +73,6 @@ const Board: React.FC = () => {
     );
   };
 
-  // ----- Drag-and-Drop Logic -----
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
     if (!over) return;
@@ -92,7 +90,6 @@ const Board: React.FC = () => {
     }
   };
 
-  // ----- Search -----
   const handleSearch = (term: string) => {
     setSearchTerm(term.toLowerCase());
   };

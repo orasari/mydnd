@@ -18,7 +18,6 @@ describe('ErrorBoundary Component', () => {
   });
 
   it('renders fallback UI when an error is thrown', () => {
-    // Suppress error logs for this test
     const consoleErrorSpy = jest
       .spyOn(console, 'error')
       .mockImplementation(() => {});
@@ -33,7 +32,6 @@ describe('ErrorBoundary Component', () => {
     expect(screen.getByText('Something went wrong.')).toBeInTheDocument();
     expect(screen.getByText('Please try again later.')).toBeInTheDocument();
 
-    // Restore original console error implementation
     consoleErrorSpy.mockRestore();
   });
 });

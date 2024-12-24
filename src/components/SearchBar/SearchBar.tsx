@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Input } from './SearchBar.styles';
 
 interface SearchBarProps {
-  onSearch: (searchTerm: string) => void; // Callback to handle search input
+  onSearch: (searchTerm: string) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
@@ -30,6 +30,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   return (
     <Container>
       <Input
+        data-testid="searchField"
         type="text"
         placeholder="Search tickets..."
         value={searchTerm}

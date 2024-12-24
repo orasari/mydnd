@@ -93,19 +93,6 @@ export const BoardContent = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     justify-content: center;
   }
-
-  &::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.colors.primary};
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
-  }
 `;
 
 export const BoardMenu = styled.div`

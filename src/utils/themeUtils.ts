@@ -12,7 +12,7 @@ export const getAccentColor = (
     case 'done':
       return theme.colors.accentNavy;
     default:
-      return theme.colors.defaultColor || theme.colors.accentBlue; // Fallback color
+      return theme.colors.defaultColor || theme.colors.accentBlue;
   }
 };
 
@@ -28,7 +28,7 @@ export const getPrimaryColor = (
     case 'done':
       return theme.colors.primaryNavy;
     default:
-      return theme.colors.defaultPrimary || theme.colors.primaryBlue; // Fallback color
+      return theme.colors.defaultPrimary || theme.colors.primaryBlue;
   }
 };
 
@@ -44,6 +44,6 @@ export const getLightColor = (
     case 'done':
       return theme.colors.lightNavy;
     default:
-      return theme.colors.defaultLight || theme.colors.lightBlue; // Fallback color
+      return theme.colors.defaultLight || theme.colors.lightBlue;
   }
 };

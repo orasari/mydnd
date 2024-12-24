@@ -1,7 +1,6 @@
 import { getAccentColor, getPrimaryColor, getLightColor } from './themeUtils';
 import { DefaultTheme } from 'styled-components';
 
-// Mock theme object
 const mockTheme: DefaultTheme = {
   colors: {
     accentBlue: '#5b9bd5',

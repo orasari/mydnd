@@ -1,19 +1,19 @@
 import { BoardState } from '@/types/Types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState: BoardState = {
   columns: {
     todo: {
       id: 'todo',
       name: 'To Do',
-      ticketIds: ['ticket-1', 'ticket-2'],
+      ticketIds: ['test1'],
     },
     inProgress: { id: 'inProgress', name: 'In Progress', ticketIds: [] },
     done: { id: 'done', name: 'Done', ticketIds: [] },
   },
   tickets: {
-    'ticket-1': { id: 'ticket-1', content: 'Implement Search Field' },
-    'ticket-2': { id: 'ticket-2', content: 'CSS Animations' },
+    test1: { id: 'test1', content: 'Initial Ticket for testing :)' },
   },
 };
 
@@ -25,7 +25,8 @@ const boardSlice = createSlice({
       state,
       action: PayloadAction<{ columnId: string; content: string }>
     ) => {
-      const newTicketId = `ticket-${Date.now()}`;
+      const uniqueId = uuidv4();
+      const newTicketId = `ticket-${uniqueId}`;
       state.tickets[newTicketId] = {
         id: newTicketId,
         content: action.payload.content,

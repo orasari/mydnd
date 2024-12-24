@@ -1,16 +1,15 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { ThemeProvider } from 'styled-components';
+import { screen, fireEvent } from '@testing-library/react';
 import Ticket from './Ticket';
 import { TicketProps } from '@/types/Types';
-import { primaryTheme } from '../../styles/theme';
+import { renderWithTheme } from '../../utils/testUtils';
 
 describe('Ticket Component', () => {
   const mockOnUpdate = jest.fn();
   const mockOnDelete = jest.fn();
 
   const ticketProps: TicketProps = {
-    ticket: { id: 'ticket-1', content: 'Sample Ticket' },
+    ticket: { id: 'asd', content: 'My Ticket' },
     columnId: 'todo',
     onUpdate: mockOnUpdate,
     onDelete: mockOnDelete,
@@ -20,30 +19,24 @@ describe('Ticket Component', () => {
     jest.clearAllMocks();
   });
 
-  const renderWithTheme = (ui: React.ReactElement) => {
-    return render(<ThemeProvider theme={primaryTheme}>{ui}</ThemeProvider>);
-  };
-
   it('renders the ticket content', () => {
     renderWithTheme(<Ticket {...ticketProps} />);
-    expect(screen.getByText('Sample Ticket')).toBeInTheDocument();
+    expect(screen.getByTestId('ticket-asd')).toBeInTheDocument();
   });
 
   it('calls onUpdate when ticket is double-clicked', () => {
     renderWithTheme(<Ticket {...ticketProps} />);
-    const ticketElement = screen.getByRole('button', {
-      name: /Ticket: Sample Ticket/i,
-    });
+    const ticketElement = screen.getByTestId('ticket-asd');
 
     fireEvent.doubleClick(ticketElement);
-    expect(mockOnUpdate).toHaveBeenCalledWith('ticket-1', 'Sample Ticket');
+    expect(mockOnUpdate).toHaveBeenCalledWith('asd', 'My Ticket');
   });
 
   it('calls onDelete when delete button is clicked', () => {
     renderWithTheme(<Ticket {...ticketProps} />);
-    const deleteButton = screen.getByLabelText('Delete ticket');
+    const deleteButton = screen.getByTestId('delete-asd');
 
     fireEvent.click(deleteButton);
-    expect(mockOnDelete).toHaveBeenCalledWith('ticket-1', 'todo');
+    expect(mockOnDelete).toHaveBeenCalledWith('asd', 'todo');
   });
 });
