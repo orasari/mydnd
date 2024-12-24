@@ -1,4 +1,3 @@
-// DraggableTicket.tsx
 import React from 'react';
 import { useDraggable } from '@dnd-kit/core';
 import Ticket from '@components/Ticket/Ticket';
