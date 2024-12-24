@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Input } from './SearchBar.styles';
+import { Container, Input, ClearButton } from './SearchBar.styles';
 
 interface SearchBarProps {
   onSearch: (searchTerm: string) => void;
@@ -27,6 +27,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     setSearchTerm(event.target.value);
   };
 
+  const handleClear = () => {
+    setSearchTerm('');
+  };
+
   return (
     <Container>
       <Input
@@ -36,6 +40,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         value={searchTerm}
         onChange={handleChange}
       />
+      {searchTerm && (
+        <ClearButton onClick={handleClear} aria-label="Clear search">
+          x
+        </ClearButton>
+      )}
     </Container>
   );
 };
