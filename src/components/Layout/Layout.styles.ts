@@ -12,20 +12,8 @@ export const LayoutContainer = styled.div`
 export const Header = styled.header`
   position: sticky;
   top: 0;
-  padding: ${({ theme }) => theme.spacing.large};
-  background: ${({ theme }) => theme.colors.background};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s ease-in-out;
-  z-index: 10;
-  transform: translateY(0);
-  box-shadow: -1px 2px 10px rgba(0, 0, 0, 0.1);
+  height: 60px;
   text-align: center;
-
-  &.hidden {
-    transform: translateY(-100%);
-  }
 `;
 
 export const Content = styled.main`

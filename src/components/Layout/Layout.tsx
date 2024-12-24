@@ -1,5 +1,4 @@
 import React from 'react';
-import { useScreenScroll } from '../../hooks/useScreenScroll';
 import { LayoutContainer, Header, Footer, Content } from './Layout.styles';
 import ThemeToggle from '../Theme/ThemeToggle';
 
@@ -8,11 +7,9 @@ type LayoutProps = {
 };
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const isHeaderVisible = useScreenScroll(130, 100);
-
   return (
     <LayoutContainer>
-      <Header className={isHeaderVisible ? '' : 'hidden'}>
+      <Header>
         <h1>Minas Kanban Board</h1>
       </Header>
       <Content>{children}</Content>
