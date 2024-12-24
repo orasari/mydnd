@@ -32,3 +32,21 @@ export const Input = styled.input`
     font-style: italic;
   }
 `;
+
+export const ClearButton = styled.button`
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.lightNavy};
+  padding: 0;
+  line-height: 1;
+  height: 40px;
+  width: 40px;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.textContrast};
+  }
+`;
