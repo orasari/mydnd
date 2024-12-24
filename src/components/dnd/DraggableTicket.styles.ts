@@ -1,6 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const DraggableDiv = styled.div`
+interface DraggableDivProps {
+  transform?: {
+    x: number;
+    y: number;
+  };
+}
+
+export const DraggableDiv = styled.div<DraggableDivProps>`
   position: relative;
   cursor: grab;
   touch-action: none;
@@ -10,8 +17,11 @@ export const DraggableDiv = styled.div`
     transform 200ms ease,
     background-color 200ms ease;
 
-  &:active {
-    cursor: grabbing;
-    transition: none;
-  }
+  ${(props) =>
+    props.transform &&
+    css`
+      transform: translate3d(${props.transform.x}px, ${props.transform.y}px, 0);
+      transition: none;
+      cursor: grabbing;
+    `}
 `;
