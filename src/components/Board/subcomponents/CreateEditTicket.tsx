@@ -1,6 +1,5 @@
-// CreateEditTicket.tsx
 import React, { useState } from 'react';
-import { ActionTypeEnum } from '../../utils/enums';
+import { ActionTypeEnum } from '../../../utils/enums';
 
 interface CreateEditTicketProps {
   action: ActionTypeEnum;

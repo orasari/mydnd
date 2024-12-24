@@ -8,7 +8,7 @@ import {
   ColumnTitle,
   TicketList,
   TicketCounter,
-} from './Board.styles';
+} from '../Board.styles';
 import { ColumnType, TicketType } from '@/types/Types';
 
 interface ColumnsRendererProps {

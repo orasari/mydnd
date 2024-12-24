@@ -5,8 +5,8 @@ import { DndContext, DragEndEvent } from '@dnd-kit/core';
 import { useBoardActions } from '@/hooks/useBoardActions';
 import Modal from '@components/Modal/Modal';
 import SearchBar from '@components/SearchBar/SearchBar';
-import CreateEditTicket from './CreateEditTicket';
-import { renderColumns } from './ColumnsRenderer';
+import CreateEditTicket from './subcomponents/CreateEditTicket';
+import { renderColumns } from './subcomponents/ColumnsRenderer';
 
 import { BoardContainer, BoardContent, BoardMenu } from './Board.styles';
 import { findTicketColumn } from '@/utils/boardUtils';

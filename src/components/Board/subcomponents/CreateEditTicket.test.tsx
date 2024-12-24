@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import CreateEditTicket from './CreateEditTicket';
-import { ActionTypeEnum } from '../../utils/enums';
+import { ActionTypeEnum } from '../../../utils/enums';
 
 describe('CreateEditTicket Component', () => {
   const mockOnSave = jest.fn();
