@@ -3,6 +3,7 @@ import { useDraggable } from '@dnd-kit/core';
 import Ticket from '@components/Ticket/Ticket';
 import { TicketType } from '@/types/Types';
 import { DraggableDiv } from './DraggableTicket.styles';
+import { CSS } from '@dnd-kit/utilities';
 
 interface DraggableTicketProps {
   id: string;
@@ -21,13 +22,14 @@ const DraggableTicket: React.FC<DraggableTicketProps> = ({
 }) => {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
 
+  const style = transform
+    ? {
+        transform: CSS.Translate.toString(transform),
+      }
+    : undefined;
+
   return (
-    <DraggableDiv
-      ref={setNodeRef}
-      {...listeners}
-      {...attributes}
-      transform={transform}
-    >
+    <DraggableDiv ref={setNodeRef} style={style} {...listeners} {...attributes}>
       <Ticket
         ticket={ticket}
         onUpdate={onUpdate}
